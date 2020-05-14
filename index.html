@@ -7,108 +7,16 @@
 </head>
 
 <body>
-    <script>
-        function computerPlay() {
-            let num, computerSelection;
-            num = Math.floor(Math.random() * 3) + 1;
+    <div id="game-container">
+        <div id="buttons">
+            <p>Choose your weapon:</p>
+            <button id="rock">ROCK</button>
+            <button id="paper">PAPER</button>
+            <button id="scissors">SCISSORS</button>
+        </div>
+        <div id="results"></div>
+    </div>
 
-            switch (num) {
-                case 1: 
-                    computerSelection = 'Rock';
-                    break;
-                case 2:
-                    computerSelection = 'Scissors';
-                    break;
-                case 3: 
-                    computerSelection = 'Paper';
-                    break;
-                default: 
-                    break;
-            }
-
-            return computerSelection.toLowerCase();
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            let playerWins, computerWins, draw;
-            
-            playerWins = `You win! ${playerSelection} beats ${computerSelection}`;
-            computerWins = `You lose! ${computerSelection} beats ${playerSelection}`;
-            draw = `${computerSelection} vs ${playerSelection}, it's a draw!`;
-
-            if (playerSelection === 'rock') {
-                if (computerSelection === 'scissors') {
-                    console.log(playerWins);
-                    return "playerWins";
-                } else if (computerSelection === 'paper') {
-                    console.log(computerWins)
-                    return "computerWins"
-                } else {
-                    console.log(draw);
-                    return "draw";
-                }
-            } else if (playerSelection === 'paper') {
-                if (computerSelection === 'rock') {
-                    console.log(playerWins)
-                    return "playerWins";
-                } else if (computerSelection === 'scissors') {
-                    console.log(computerWins)
-                    return "computerWins";
-                } else {
-                    console.log(draw);
-                    return "draw";
-                }
-            } else if (playerSelection === 'scissors') {
-                if (computerSelection === 'rock') {
-                    console.log(computerWins);
-                    return "computerWins";
-                } else if (computerSelection === 'paper') {
-                    console.log(playerWins);
-                    return "playerWins";
-                } else {
-                    console.log(draw);
-                    return "draw";
-                }
-            }
-        }
-
-        function game() {
-            let totalPlayerWins = 0;
-            let totalComputerWins = 0;
-
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt('Choose your weapon');
-                let computerSelection = computerPlay();
-                let result = playRound(playerSelection, computerSelection);
-                
-                switch (result) {
-                    case "playerWins":
-                        totalPlayerWins++;
-                        break;
-                    case "computerWins":
-                        totalComputerWins++;
-                        break;
-                    case "draw":
-                        break;
-                    default: 
-                        break;
-                }
-                      
-            }
-
-            console.log(`You won ${totalPlayerWins} rounds`);
-            console.log(`The computer won ${totalComputerWins}`);
-
-            if (totalPlayerWins > totalComputerWins) {
-                console.log('Congratulations, you have won!');
-            } else {
-                console.log('Sorry, you were beaten by the computer')
-            }
-        }
-
-        game();
-
-    </script>
-    
 </body>
+<script src="index.js"></script>
 </html>
